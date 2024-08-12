@@ -35,7 +35,8 @@ ZoneMasterDataSubscriber::ZoneMasterDataSubscriber()
     , subscriber_(nullptr)
     , topic_(nullptr)
     , reader_(nullptr)
-    , type_(new someipStateInfoPubSubType())
+    // , type_(new someipStateInfoPubSubType())
+    , type_(new canMessagesPubSubType())
 {
 }
 
@@ -124,7 +125,8 @@ void ZoneMasterDataSubscriber::SubListener::on_data_available(
         DataReader* reader)
 {
     // Take data
-    someipStateInfo st;
+    // someipStateInfo st;
+    canMessages st;
     SampleInfo info;
 
     if (reader->take_next_sample(&st, &info) == ReturnCode_t::RETCODE_OK)
@@ -134,6 +136,7 @@ void ZoneMasterDataSubscriber::SubListener::on_data_available(
             // Print your structure data here.
             ++samples;
             std::cout << "Sample received, count=" << samples << std::endl;
+            std::cout << "st length=" << static_cast<uint64_t>(st.len()) << std::endl;
         }
     }
 }

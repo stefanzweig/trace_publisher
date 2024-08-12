@@ -39,7 +39,8 @@ ZoneMasterDataPublisher::ZoneMasterDataPublisher()
     , publisher_(nullptr)
     , topic_(nullptr)
     , writer_(nullptr)
-    , type_(new someipStateInfoPubSubType())
+    // , type_(new someipStateInfoPubSubType())
+    , type_(new canMessagesPubSubType())
 {
 }
 
@@ -135,7 +136,8 @@ void ZoneMasterDataPublisher::run()
 
     // Publication code
 
-    someipStateInfo st;
+    // someipStateInfo st;
+    canMessages st;
 
     /* Initialize your structure here */
 
