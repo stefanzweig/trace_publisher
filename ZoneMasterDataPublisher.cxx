@@ -149,7 +149,7 @@ void ZoneMasterDataPublisher::run()
         {
             writer_->write(&st);
             ++msgsent;
-            std::cout << "Sending sample, count=" << msgsent << ", send another sample?(y-yes,n-stop): ";
+            std::cout << "Sending sample, count=" << msgsent << std::endl;
         }
         else if (ch == 'n')
         {
@@ -160,5 +160,6 @@ void ZoneMasterDataPublisher::run()
         {
             std::cout << "Command " << ch << " not recognized, please enter \"y/n\":";
         }
-    } while (std::cin >> ch);
+    // } while (std::cin >> ch);
+    } while (1);
 }

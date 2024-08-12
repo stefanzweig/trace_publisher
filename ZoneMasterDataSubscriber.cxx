@@ -136,7 +136,7 @@ void ZoneMasterDataSubscriber::SubListener::on_data_available(
             // Print your structure data here.
             ++samples;
             std::cout << "Sample received, count=" << samples << std::endl;
-            std::cout << "st length=" << static_cast<uint64_t>(st.len()) << std::endl;
+            // std::cout << "st length=" << static_cast<uint64_t>(st.len()) << std::endl;
         }
     }
 }
