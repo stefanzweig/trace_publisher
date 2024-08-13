@@ -68,7 +68,7 @@ bool ZoneMasterDataPublisher::init()
     //CREATE THE PARTICIPANT
     DomainParticipantQos pqos;
     pqos.name("Participant_pub");
-    participant_ = DomainParticipantFactory::get_instance()->create_participant(0, pqos);
+    participant_ = DomainParticipantFactory::get_instance()->create_participant(90, pqos);
     if (participant_ == nullptr)
     {
         return false;
@@ -86,7 +86,8 @@ bool ZoneMasterDataPublisher::init()
 
     //CREATE THE TOPIC
     topic_ = participant_->create_topic(
-        "ZoneMasterDataTopic",
+        // "ZoneMasterDataTopic",
+        "canMessageTopic",
         type_.get_type_name(),
         TOPIC_QOS_DEFAULT);
     if (topic_ == nullptr)
