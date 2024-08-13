@@ -36,8 +36,11 @@ ZoneMasterDataSubscriber::ZoneMasterDataSubscriber()
     , topic_(nullptr)
     , reader_(nullptr)
     // , type_(new someipStateInfoPubSubType())
-    , type_(new canMessagesPubSubType())
+    // , type_(new canMessagesPubSubType())
 {
+    canMessagesPubSubType* can_messages_pubsubtype = new canMessagesPubSubType();
+    can_messages_pubsubtype->setName("canMessageData");
+    type_ = TypeSupport(can_messages_pubsubtype);
 }
 
 ZoneMasterDataSubscriber::~ZoneMasterDataSubscriber()
